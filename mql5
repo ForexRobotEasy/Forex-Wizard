@@ -1,0 +1,55 @@
+
+//+------------------------------------------------------------------+
+//|                                               Forex Wizard.mq5  |
+//|                                     https://forexroboteasy.com  |
+//|                                       Developed by Forex Robot Easy Team |
+//+------------------------------------------------------------------+
+
+//--- Expert Advisor initialization function
+int OnInit()
+{
+   //--- Set the lot size based on the minimum deposit
+   double deposit = AccountInfoDouble(ACCOUNT_BALANCE);
+   double lotSize;
+   
+   if (deposit >= 400)
+      lotSize = 0.1;
+   else
+      lotSize = 0.01;
+   
+   //--- Print the recommended lot size
+   Print('Recommended lot size: ', lotSize);
+   
+   //--- Add necessary trading functions here
+   //...
+   
+   return(INIT_SUCCEEDED);
+}
+
+//--- Expert Advisor start function
+void OnTick()
+{
+   //--- Add trading algorithm here
+   //...
+   
+   //--- Close all open positions
+   CloseAllPositions();
+}
+
+//--- Close all open positions
+void CloseAllPositions()
+{
+   //--- Add code to close all open positions here
+   //...
+   
+   Print('All positions closed');
+}
+
+//--- Expert Advisor deinitialization function
+void OnDeinit(const int reason)
+{
+   //--- Add any cleanup code here
+   //...
+   
+   Print('Expert Advisor deinitialized');
+}
